@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const app = document.getElementById('app');
+
+        //Genera un H1 id app
+        const header =document.createElement('h1');
+
+        //Se genera un nuevo nodo de texto para el contenido del H1
+        const text = 'Develop. Preview, Ship.';
+        const headerContent = document.createTextNode(text);
+
+        //Se agrega el contenido del nodo al H1
+        header.appendChild(headerContent);
+
+        //Se inserta el H1 creado dentro del div con id app
+        app.appendChild(header);
+
+       
+       
+        //Ejercicio de prueba insertando un parrafo 
+
+        //Se genera un parrafo 
+        const otroparrafo = document.createElement('p');
+
+        //Se genera el contenido del texto 
+        const textop = 'Prueba de inserta un parrafo dentro del div con id app';
+        //Se crea el nodo 
+        const nodoparrafo = document.createTextNode(textop);
+
+        //Con se inserta el contenido al nodo creado 
+        otroparrafo.appendChild(nodoparrafo);
+        //Se inserta el contenido al div 
+        app.appendChild(otroparrafo);
+
+
+    </script>
+</body>
+</html>

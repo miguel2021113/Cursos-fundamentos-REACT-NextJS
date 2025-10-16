@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+
+        //Nueva forma de manipular el DOM 
+      const app = document.getElementById('app');
+
+      
+      //Declaracion del componente, NOTA:El nombre siempre inicia con mayuscula
+      function Header({title}) {
+        
+        //Devuelve como un tipo de objeto
+        console.log(title);
+
+
+        //Devuelve una variable modificable los props manipula los atributos. 
+        //Los props ayudan a la hora de reutilizar componentes.
+
+        //Usando el operador ternario
+        return <h1>{title ? title: 'Default title'}</h1>
+      }
+
+      //Anidando componentes
+
+        function HomePage() {
+          const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+          const [likes, setLikes] = React.useState(0);
+          
+          function handleClick(){
+            setLikes(likes+1);
+          }
+
+          return (
+            <div>
+              <Header title="Develop. Preview. Ship." />
+              //Se devuelve una lista iterando en el array se genera un nuevo elemento utilizando el metodo array.map
+              <ul>
+                {names.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+
+              <button onClick={handleClick} >Likes ({likes})</button>
+              
+            </div>
+          );
+        }
+      //Se genera la raiz dircetamente y se inserta el contenido directamente
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);
+    </script>
+</body>
+</html>
