@@ -23,7 +23,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-// Función para publicar (si ya la tienes)
 async function publishPost(id: string): Promise<void> {
   await fetch(`/api/publish/${id}`, {
     method: 'PUT',
@@ -31,7 +30,6 @@ async function publishPost(id: string): Promise<void> {
   await Router.push('/');
 }
 
-// ⬇️ NUEVA FUNCIÓN: para eliminar
 async function deletePost(id: string): Promise<void> {
   await fetch(`/api/post/${id}`, {
     method: 'DELETE',
@@ -61,7 +59,6 @@ const Post: React.FC<PostProps> = (props) => {
         <p>By {props?.author?.name || "Unknown author"}</p>
         <ReactMarkdown children={props.content} />
         
-        {/* Botones de acción */}
         {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(props.id)}>Publish</button>
         )}
